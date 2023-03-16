@@ -17,5 +17,8 @@ public class HttpCamelRouter extends RouteBuilder {
                 .to("http://httpforever.com?httpMethod=GET")
                 .bean(myBean, "saySomething")
                 .to("file:target/webpage");
+
+        from("direct:start").routeId("springEndpointBridge")
+                .to("http://localhost:8080/api/v1/reply?httpMethod=GET");
     }
 }

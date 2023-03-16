@@ -14,5 +14,6 @@ public class ActiveMQCamelRouter extends RouteBuilder {
         from("activemq:queue:HELLO.WORLD").routeId("MQToFile")
                 .log("Sending from Queue to target back...")
                 .to("file:target/mq");
+
     }
 }
